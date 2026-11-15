@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "optparse"
+require_relative "../lib/moxml/testsuite"
+
+options = { adapter: nil, families: nil }
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: moxml-testsuite [options]"
+  opts.summary_width = 24
+
+  opts.on("-a", "--adapter NAME",
+          "The adapter to certify (default: moxml's default)") do |v|
+    options[:adapter] = v.to_sym
+  end
+
+  opts.on("-f", "--families LIST",
+          "Comma-separated family subset (default: all seven)") do |v|
+    options[:families] = v.split(",").map(&:strip)
+  end
+
+  opts.on("-h", "--help", "Show this help") do
+    puts opts
+    exit 0
+  end
+end.parse!
+
+begin
+  facade = Moxml::TestSuite::Reference.new(adapter: options[:adapter])
+  report = Moxml::TestSuite.run(facade, families: options[:families])
+rescue LoadError => e
+  warn "moxml-testsuite: #{e.message}"
+  warn "moxml must be installed to run the bundled Reference facade"
+  exit 2
+rescue Moxml::AdapterError => e
+  warn "moxml-testsuite: #{e.message.lines.first.strip}"
+  exit 2
+end
+
+puts report
+exit(report.passed? ? 0 : 1)

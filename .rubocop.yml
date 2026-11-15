@@ -31,6 +31,10 @@ Metrics/PerceivedComplexity:
 Metrics/ParameterLists:
   Max: 8
 
+# Family style: runner and CLI specs describe by string.
+RSpec/DescribeClass:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Max: 8
 

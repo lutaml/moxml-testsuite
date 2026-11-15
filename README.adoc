@@ -23,7 +23,25 @@ The moxml processing model (https://github.com/lutaml/moxml — `docs/_reference
 
 == Certifying an engine
 
-The dataset ships vendored (`testdata/moxml-conformance.json`); the runner consumes rows and never restates them. Any object implementing the certification protocol can be certified:
+The quick path is the CLI:
+
+[source,console]
+----
+$ moxml-testsuite
+moxml-testsuite (facade: Moxml::TestSuite::Reference)
+  PASS decisions (126 cases)
+  PASS entity_registry (11 cases)
+  PASS serialization (20 cases)
+  PASS c14n (14 cases)
+  PASS xsd_structural (6 cases)
+
+$ moxml-testsuite --adapter leptris
+$ moxml-testsuite --families c14n,serialization
+----
+
+The exit code mirrors the verdict (0 certified, 1 failed, 2 unusable adapter), so it drops straight into CI.
+
+The library path - any object implementing the certification protocol can be certified:
 
 [source, ruby]
 ----

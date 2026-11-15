@@ -1,0 +1,37 @@
+name: release
+
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      next_version:
+        description: |
+          Next release version. Possible values: x.y.z, major, minor, patch or pre|rc|etc
+        required: true
+        default: 'skip'
+      gated:
+        description: |
+          Defer rubygems publish to a separate repository_dispatch (do-release) run.
+          - false (default): bump + tag + publish in one step.
+          - true: bump + tag only; publish when do-release is triggered.
+        required: false
+        default: false
+        type: boolean
+  repository_dispatch:
+    types: [ do-release ]
+
+jobs:
+  release:
+    uses: metanorma/ci/.github/workflows/rubygems-release.yml@main
+    with:
+      next_version: ${{ github.event.inputs.next_version }}
+      gated: ${{ inputs.gated == true }}
+    # v0.1.0 was pushed directly; the OIDC trusted publisher for the
+    # moxml-testsuite gem name must be registered on rubygems.org before
+    # this workflow can publish. pat_token covers the version bump push.
+    secrets:
+      pat_token: ${{ secrets.GITHUB_TOKEN }}

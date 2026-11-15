@@ -1,0 +1,60 @@
+= moxml-testsuite
+
+image:https://img.shields.io/gem/v/moxml-testsuite.svg["Gem Version", link="https://rubygems.org/gems/moxml-testsuite"]
+
+The moxml conformance test suite: certify any XML engine against the moxml model.
+
+The moxml processing model (https://github.com/lutaml/moxml — `docs/_references/processing-model.adoc`) is a set of committed answers: one object model, one document order, one serialization shape, one canonicalization, one validation verdict — for every question an XML program can ask. The moxml conformance dataset (schema 5, 177 cases across seven families) IS those answers as data, and this gem is the runner that drives any engine through them.
+
+== The seven families
+
+[cols="1,2,3"]
+|===
+|Family |Cases |Facade faces
+
+|builtin_lexical |81 |`lexical_valid?(type_name, lexical)`
+|xsd_regex_translation |21 |`regex_translates?(pattern)`
+|schema_wildcards |24 |`wildcard_covers?(...)`, `wildcard_exclusion?(...)`
+|entity_registry |11 |`entity_declared?(...)` and the registry faces
+|serialization |20 |`parse(xml)`, `serialize(doc)`
+|c14n |14 |`canonicalize(doc)`
+|xsd_structural |6 |`validate_xsd(schema, instance)`
+|===
+
+== Certifying an engine
+
+The dataset ships vendored (`testdata/moxml-conformance.json`); the runner consumes rows and never restates them. Any object implementing the certification protocol can be certified:
+
+[source, ruby]
+----
+require "moxml/testsuite"
+
+report = Moxml::TestSuite.run(Moxml::TestSuite::Reference.new)
+puts report
+report.passed? # => true
+----
+
+`Reference` implements the whole protocol on moxml itself — pin the engine when the host carries several:
+
+[source, ruby]
+----
+Moxml::TestSuite::Reference.new(adapter: :leptris)
+Moxml::TestSuite::Reference.new(adapter: :nokogiri)
+----
+
+A facade that cannot answer a family's faces sees that family SKIP — loudly, in the report — never a quiet pass. A facade that answers against the dataset FAILs with the offending case named.
+
+== The one-directional contract
+
+The model's degradation is one-directional: an engine that cannot evaluate a construct stays silent (under-report); it never produces a different answer. The suite pins that too — unevaluatable rows expect under-reporting, and "answered wrong" and "answered differently per engine" are both failures. Equivalence is to the model, not merely engine-to-engine.
+
+== Provenance
+
+The dataset is generated from the moxml suite (`rake conformance:export` in lutaml/moxml) and consumed by the cross-language runners: moxml-rs (Rust) and moxml-ts (TypeScript). schema 5 is the row-shape version; `generator` names the producing moxml release.
+
+== Development
+
+----
+bundle install
+bundle exec rake
+----

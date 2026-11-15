@@ -1,0 +1,1250 @@
+{
+  "schema": 5,
+  "generator": "moxml 0.6.4",
+  "cases": {
+    "builtin_lexical": [
+      {
+        "type": "xs:token",
+        "lexical": "a  b",
+        "valid": true
+      },
+      {
+        "type": "xs:ID",
+        "lexical": " id ",
+        "valid": true
+      },
+      {
+        "type": "xs:NMTOKEN",
+        "lexical": "\tx ",
+        "valid": true
+      },
+      {
+        "type": "xs:ID",
+        "lexical": "1d",
+        "valid": false
+      },
+      {
+        "type": "xs:integer",
+        "lexical": "11111111111111111111111111111",
+        "valid": true
+      },
+      {
+        "type": "xs:positiveInteger",
+        "lexical": "11111111111111111111111111111",
+        "valid": true
+      },
+      {
+        "type": "xs:nonNegativeInteger",
+        "lexical": "11111111111111111111111111111",
+        "valid": true
+      },
+      {
+        "type": "xs:negativeInteger",
+        "lexical": "-100000000000000000000",
+        "valid": true
+      },
+      {
+        "type": "xs:nonPositiveInteger",
+        "lexical": "0",
+        "valid": true
+      },
+      {
+        "type": "xs:nonPositiveInteger",
+        "lexical": "-0",
+        "valid": true
+      },
+      {
+        "type": "xs:long",
+        "lexical": "9223372036854775807",
+        "valid": true
+      },
+      {
+        "type": "xs:long",
+        "lexical": "9223372036854775808",
+        "valid": false
+      },
+      {
+        "type": "xs:unsignedLong",
+        "lexical": "18446744073709551615",
+        "valid": true
+      },
+      {
+        "type": "xs:unsignedLong",
+        "lexical": "18446744073709551616",
+        "valid": false
+      },
+      {
+        "type": "xs:byte",
+        "lexical": "128",
+        "valid": false
+      },
+      {
+        "type": "xs:unsignedByte",
+        "lexical": "256",
+        "valid": false
+      },
+      {
+        "type": "xs:float",
+        "lexical": "+INF",
+        "valid": true
+      },
+      {
+        "type": "xs:double",
+        "lexical": "-INF",
+        "valid": true
+      },
+      {
+        "type": "xs:float",
+        "lexical": "NaN",
+        "valid": true
+      },
+      {
+        "type": "xs:float",
+        "lexical": "1.5E-3",
+        "valid": true
+      },
+      {
+        "type": "xs:decimal",
+        "lexical": "5.",
+        "valid": true
+      },
+      {
+        "type": "xs:decimal",
+        "lexical": ".5",
+        "valid": true
+      },
+      {
+        "type": "xs:decimal",
+        "lexical": "1e3",
+        "valid": false
+      },
+      {
+        "type": "xs:date",
+        "lexical": "2024-02-29",
+        "valid": true
+      },
+      {
+        "type": "xs:date",
+        "lexical": "1999-02-29",
+        "valid": false
+      },
+      {
+        "type": "xs:date",
+        "lexical": "2024-04-31",
+        "valid": false
+      },
+      {
+        "type": "xs:date",
+        "lexical": "2024-13-01",
+        "valid": false
+      },
+      {
+        "type": "xs:date",
+        "lexical": "not-a-date",
+        "valid": false
+      },
+      {
+        "type": "xs:dateTime",
+        "lexical": "2024-02-29T23:59:59Z",
+        "valid": true
+      },
+      {
+        "type": "xs:dateTime",
+        "lexical": "1999-02-29T00:00:00",
+        "valid": false
+      },
+      {
+        "type": "xs:dateTime",
+        "lexical": "not-a-date",
+        "valid": false
+      },
+      {
+        "type": "xs:dateTimeStamp",
+        "lexical": "2024-02-29T00:00:00Z",
+        "valid": true
+      },
+      {
+        "type": "xs:dateTimeStamp",
+        "lexical": "2024-02-29T00:00:00",
+        "valid": false
+      },
+      {
+        "type": "xs:time",
+        "lexical": "23:59:59.999+05:30",
+        "valid": true
+      },
+      {
+        "type": "xs:time",
+        "lexical": "24:00:00",
+        "valid": false
+      },
+      {
+        "type": "xs:time",
+        "lexical": "25:20:00",
+        "valid": false
+      },
+      {
+        "type": "xs:time",
+        "lexical": "13:20:60",
+        "valid": false
+      },
+      {
+        "type": "xs:gYearMonth",
+        "lexical": "2024-02Z",
+        "valid": true
+      },
+      {
+        "type": "xs:gYearMonth",
+        "lexical": "2024-13",
+        "valid": false
+      },
+      {
+        "type": "xs:gMonthDay",
+        "lexical": "--02-29",
+        "valid": true
+      },
+      {
+        "type": "xs:gMonthDay",
+        "lexical": "--02-30",
+        "valid": false
+      },
+      {
+        "type": "xs:gDay",
+        "lexical": "---31",
+        "valid": true
+      },
+      {
+        "type": "xs:gDay",
+        "lexical": "---32",
+        "valid": false
+      },
+      {
+        "type": "xs:duration",
+        "lexical": "P1Y2M3DT4H5M6.5S",
+        "valid": true
+      },
+      {
+        "type": "xs:duration",
+        "lexical": "PT0S",
+        "valid": true
+      },
+      {
+        "type": "xs:duration",
+        "lexical": "-P1D",
+        "valid": true
+      },
+      {
+        "type": "xs:duration",
+        "lexical": "P",
+        "valid": false
+      },
+      {
+        "type": "xs:duration",
+        "lexical": "PT",
+        "valid": false
+      },
+      {
+        "type": "xs:duration",
+        "lexical": "P1Y2MT",
+        "valid": false
+      },
+      {
+        "type": "xs:duration",
+        "lexical": "P200.5Y",
+        "valid": false
+      },
+      {
+        "type": "xs:dayTimeDuration",
+        "lexical": "P1DT2H",
+        "valid": true
+      },
+      {
+        "type": "xs:dayTimeDuration",
+        "lexical": "P1Y",
+        "valid": false
+      },
+      {
+        "type": "xs:yearMonthDuration",
+        "lexical": "P1Y2M",
+        "valid": true
+      },
+      {
+        "type": "xs:yearMonthDuration",
+        "lexical": "P1D",
+        "valid": false
+      },
+      {
+        "type": "xs:yearMonthDuration",
+        "lexical": "P1YT1H",
+        "valid": false
+      },
+      {
+        "type": "xs:base64Binary",
+        "lexical": "aGVsbG8=",
+        "valid": true
+      },
+      {
+        "type": "xs:base64Binary",
+        "lexical": "abcd",
+        "valid": true
+      },
+      {
+        "type": "xs:base64Binary",
+        "lexical": "abcde",
+        "valid": false
+      },
+      {
+        "type": "xs:base64Binary",
+        "lexical": "a b",
+        "valid": false
+      },
+      {
+        "type": "xs:hexBinary",
+        "lexical": "0A",
+        "valid": true
+      },
+      {
+        "type": "xs:hexBinary",
+        "lexical": "0AB",
+        "valid": false
+      },
+      {
+        "type": "xs:QName",
+        "lexical": "foo",
+        "valid": true
+      },
+      {
+        "type": "xs:QName",
+        "lexical": "ns:foo",
+        "valid": true
+      },
+      {
+        "type": "xs:QName",
+        "lexical": "xmlns:xsi",
+        "valid": false
+      },
+      {
+        "type": "xs:QName",
+        "lexical": ":foo",
+        "valid": false
+      },
+      {
+        "type": "xs:QName",
+        "lexical": "a:b:c",
+        "valid": false
+      },
+      {
+        "type": "xs:NOTATION",
+        "lexical": "foo",
+        "valid": true
+      },
+      {
+        "type": "xs:IDREFS",
+        "lexical": "a b",
+        "valid": true
+      },
+      {
+        "type": "xs:IDREFS",
+        "lexical": "a",
+        "valid": true
+      },
+      {
+        "type": "xs:IDREFS",
+        "lexical": "",
+        "valid": false
+      },
+      {
+        "type": "xs:NMTOKENS",
+        "lexical": "a.b-c:d e",
+        "valid": true
+      },
+      {
+        "type": "xs:ENTITIES",
+        "lexical": "a 1",
+        "valid": false
+      },
+      {
+        "type": "xs:string",
+        "lexical": "anything <>&",
+        "valid": true
+      },
+      {
+        "type": "xs:anyURI",
+        "lexical": "http://example.com/a b",
+        "valid": true
+      },
+      {
+        "type": "xs:boolean",
+        "lexical": "true",
+        "valid": true
+      },
+      {
+        "type": "xs:boolean",
+        "lexical": "0",
+        "valid": true
+      },
+      {
+        "type": "xs:boolean",
+        "lexical": "TRUE",
+        "valid": false
+      },
+      {
+        "type": "xs:language",
+        "lexical": "en-US",
+        "valid": true
+      },
+      {
+        "type": "xs:language",
+        "lexical": "en_US",
+        "valid": false
+      },
+      {
+        "type": "xs:Name",
+        "lexical": "a:b",
+        "valid": true
+      },
+      {
+        "type": "xs:NCName",
+        "lexical": "a:b",
+        "valid": false
+      }
+    ],
+    "xsd_regex_translation": [
+      {
+        "pattern": "\\p{IsBasicLatin}+",
+        "value": "abc",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "\\p{IsBasicLatin}+",
+        "value": "",
+        "matches": false,
+        "translatable": true
+      },
+      {
+        "pattern": "\\P{IsLatin-1Supplement}",
+        "value": "a",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "\\P{IsLatin-1Supplement}",
+        "value": "é",
+        "matches": false,
+        "translatable": true
+      },
+      {
+        "pattern": "\\p{IsGreek}",
+        "value": "α",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "\\p{IsGreek}",
+        "value": "a",
+        "matches": false,
+        "translatable": true
+      },
+      {
+        "pattern": "\\p{L}",
+        "value": "a",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "\\p{L}",
+        "value": "1",
+        "matches": false,
+        "translatable": true
+      },
+      {
+        "pattern": "\\p{Nd}{1,3}",
+        "value": "5",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "\\p{Nd}{1,3}",
+        "value": "abc",
+        "matches": false,
+        "translatable": true
+      },
+      {
+        "pattern": "\\d{1,3}",
+        "value": "5",
+        "matches": false,
+        "translatable": false
+      },
+      {
+        "pattern": "\\d{1,3}",
+        "value": "abc",
+        "matches": false,
+        "translatable": false
+      },
+      {
+        "pattern": "[0-9]{1,3}",
+        "value": "42",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "[a-z]*",
+        "value": "",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "a|b",
+        "value": "b",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "a|b",
+        "value": "c",
+        "matches": false,
+        "translatable": true
+      },
+      {
+        "pattern": "a.c",
+        "value": "abc",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "a\\.c",
+        "value": "a.c",
+        "matches": true,
+        "translatable": true
+      },
+      {
+        "pattern": "\\i\\c*",
+        "value": "x",
+        "matches": false,
+        "translatable": false
+      },
+      {
+        "pattern": "[\\p{IsBasicLatin}-[abc]]+",
+        "value": "a",
+        "matches": false,
+        "translatable": false
+      },
+      {
+        "pattern": "\\p{IsNoSuchBlock}",
+        "value": "a",
+        "matches": false,
+        "translatable": false
+      }
+    ],
+    "schema_wildcards": [
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "tns",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##other",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": false,
+        "exclusion": null
+      },
+      {
+        "constraint": "##other",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "tns",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": false,
+        "exclusion": null
+      },
+      {
+        "constraint": "##other",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "urn:other",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##local",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##local",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "urn:b",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": false,
+        "exclusion": null
+      },
+      {
+        "constraint": "##targetNamespace urn:b",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "tns",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##targetNamespace urn:b",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": false,
+        "exclusion": null
+      },
+      {
+        "constraint": "urn:a urn:b",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "urn:a",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "urn:a urn:b",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "urn:c",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": false,
+        "exclusion": null
+      },
+      {
+        "constraint": "urn:a",
+        "process": "lax",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "urn:a",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "urn:a",
+        "process": "skip",
+        "not_namespace": null,
+        "not_qname": [],
+        "item_namespace": "urn:a",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [
+          "x"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": "not_qname"
+      },
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [
+          "x"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}y",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##any",
+        "process": "lax",
+        "not_namespace": null,
+        "not_qname": [
+          "x"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": true,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": "not_qname"
+      },
+      {
+        "constraint": "##any",
+        "process": "skip",
+        "not_namespace": null,
+        "not_qname": [
+          "x"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": true,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": "not_qname"
+      },
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [
+          "##defined"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [
+          "##defined"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": true,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": "not_qname"
+      },
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [
+          "##definedSibling"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [
+          "{}y"
+        ],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "##any",
+        "process": "strict",
+        "not_namespace": null,
+        "not_qname": [
+          "##definedSibling"
+        ],
+        "item_namespace": "local",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [
+          "{}x"
+        ],
+        "covers": true,
+        "exclusion": "not_qname"
+      },
+      {
+        "constraint": "urn:a",
+        "process": "strict",
+        "not_namespace": "urn:z",
+        "not_qname": [],
+        "item_namespace": "urn:a",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": true,
+        "exclusion": null
+      },
+      {
+        "constraint": "urn:a",
+        "process": "strict",
+        "not_namespace": "urn:z",
+        "not_qname": [],
+        "item_namespace": "urn:z",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": false,
+        "exclusion": "not_namespace"
+      },
+      {
+        "constraint": "urn:a",
+        "process": "lax",
+        "not_namespace": "urn:z",
+        "not_qname": [],
+        "item_namespace": "urn:z",
+        "item_qname": "{}x",
+        "defined": false,
+        "sibling_names": [],
+        "covers": false,
+        "exclusion": "not_namespace"
+      }
+    ],
+    "entity_registry": [
+      {
+        "seed": {
+          "amp": "&"
+        },
+        "qname": "amp",
+        "qcp": 38,
+        "restore_entities": false,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 38,
+        "names": [
+          "amp"
+        ],
+        "primary": "amp",
+        "standard": true,
+        "restore": true
+      },
+      {
+        "seed": {
+          "NonBreakingSpace": " ",
+          "nbsp": " "
+        },
+        "qname": "nbsp",
+        "qcp": 160,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 160,
+        "names": [
+          "NonBreakingSpace",
+          "nbsp"
+        ],
+        "primary": "nbsp",
+        "standard": false,
+        "restore": true
+      },
+      {
+        "seed": {
+          "nbsp": " "
+        },
+        "qname": "nbsp",
+        "qcp": 160,
+        "restore_entities": false,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 160,
+        "names": [
+          "nbsp"
+        ],
+        "primary": "nbsp",
+        "standard": false,
+        "restore": false
+      },
+      {
+        "seed": {
+          "nbsp": " "
+        },
+        "qname": "nbsp",
+        "qcp": 160,
+        "restore_entities": true,
+        "mode": "strict",
+        "declared": true,
+        "codepoint": 160,
+        "names": [
+          "nbsp"
+        ],
+        "primary": "nbsp",
+        "standard": false,
+        "restore": true
+      },
+      {
+        "seed": {
+          "AElig": "Æ"
+        },
+        "qname": "AElig",
+        "qcp": 198,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 198,
+        "names": [
+          "AElig"
+        ],
+        "primary": "AElig",
+        "standard": false,
+        "restore": true
+      },
+      {
+        "seed": {
+          "fjlig": "fj"
+        },
+        "qname": "fjlig",
+        "qcp": 102,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 102,
+        "names": [
+          "fjlig"
+        ],
+        "primary": "fjlig",
+        "standard": false,
+        "restore": true
+      },
+      {
+        "seed": {
+          "DotDot": " ⃜"
+        },
+        "qname": "DotDot",
+        "qcp": 32,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 32,
+        "names": [
+          "DotDot"
+        ],
+        "primary": "DotDot",
+        "standard": false,
+        "restore": true
+      },
+      {
+        "seed": {
+          "NotEqualTilde": "≂̸"
+        },
+        "qname": "NotEqualTilde",
+        "qcp": 8770,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 8770,
+        "names": [
+          "NotEqualTilde"
+        ],
+        "primary": "NotEqualTilde",
+        "standard": false,
+        "restore": true
+      },
+      {
+        "seed": {
+          "esc": "\\u00A0"
+        },
+        "qname": "esc",
+        "qcp": 160,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": true,
+        "codepoint": 160,
+        "names": [
+          "esc"
+        ],
+        "primary": "esc",
+        "standard": false,
+        "restore": true
+      },
+      {
+        "seed": {
+          "bad": ""
+        },
+        "qname": "bad",
+        "qcp": 0,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": false,
+        "codepoint": null,
+        "names": [],
+        "primary": null,
+        "standard": false,
+        "restore": false
+      },
+      {
+        "seed": {
+          "nbsp": " "
+        },
+        "qname": "nope",
+        "qcp": 9999,
+        "restore_entities": true,
+        "mode": "lenient",
+        "declared": false,
+        "codepoint": null,
+        "names": [],
+        "primary": null,
+        "standard": false,
+        "restore": false
+      }
+    ],
+    "serialization": [
+      {
+        "id": "empty-root",
+        "input": "<r/>",
+        "output": "<r></r>"
+      },
+      {
+        "id": "simple-text",
+        "input": "<r>x</r>",
+        "output": "<r>x</r>"
+      },
+      {
+        "id": "attr-amp",
+        "input": "<r a=\"x &amp; y\"/>",
+        "output": "<r a=\"x &amp; y\"></r>"
+      },
+      {
+        "id": "attr-lt",
+        "input": "<r a=\"1 &lt; 2\"/>",
+        "output": "<r a=\"1 &lt; 2\"></r>"
+      },
+      {
+        "id": "attr-quote",
+        "input": "<r a='say \"hi\"'/>",
+        "output": "<r a=\"say &quot;hi&quot;\"></r>"
+      },
+      {
+        "id": "text-escape",
+        "input": "<r>1 &lt; 2 &amp; 3</r>",
+        "output": "<r>1 &lt; 2 &amp; 3</r>"
+      },
+      {
+        "id": "text-gt",
+        "input": "<r>1 &gt; 2</r>",
+        "output": "<r>1 &gt; 2</r>"
+      },
+      {
+        "id": "cdata",
+        "input": "<r><![CDATA[a]]><b/></r>",
+        "output": "<r><![CDATA[a]]><b></b></r>"
+      },
+      {
+        "id": "comment",
+        "input": "<r><!--c--></r>",
+        "output": "<r><!--c--></r>"
+      },
+      {
+        "id": "pi",
+        "input": "<r><?pi data?></r>",
+        "output": "<r><?pi data?></r>"
+      },
+      {
+        "id": "namespace-default",
+        "input": "<r xmlns=\"urn:x\"><a/></r>",
+        "output": "<r xmlns=\"urn:x\"><a></a></r>"
+      },
+      {
+        "id": "namespace-prefixed-attr",
+        "input": "<r xmlns:p=\"urn:p\" p:a=\"1\"/>",
+        "output": "<r xmlns:p=\"urn:p\" p:a=\"1\"></r>"
+      },
+      {
+        "id": "mixed-content",
+        "input": "<r>a<b/>c</r>",
+        "output": "<r>a<b></b>c</r>"
+      },
+      {
+        "id": "attr-newline",
+        "input": "<r a=\"x&#10;y\"/>",
+        "output": "<r a=\"x&#10;y\"></r>"
+      },
+      {
+        "id": "crlf-text",
+        "input": "<r>a\r\nb</r>",
+        "output": "<r>a\nb</r>"
+      },
+      {
+        "id": "combo",
+        "input": "<r a='1'>t&amp;t</r>",
+        "output": "<r a=\"1\">t&amp;t</r>"
+      },
+      {
+        "id": "nested-empty",
+        "input": "<r><a><b/></a></r>",
+        "output": "<r><a><b></b></a></r>"
+      },
+      {
+        "id": "text-apos",
+        "input": "<r>it&apos;s</r>",
+        "output": "<r>it's</r>"
+      },
+      {
+        "id": "numeric-ref",
+        "input": "<r>&#65;&#233;</r>",
+        "output": "<r>Aé</r>"
+      },
+      {
+        "id": "high-codepoint-attr",
+        "input": "<r a=\"é\"/>",
+        "output": "<r a=\"é\"></r>"
+      }
+    ],
+    "c14n": [
+      {
+        "id": "attr-order",
+        "input": "<r b=\"2\" a=\"1\"/>",
+        "canonical": "<r a=\"1\" b=\"2\"></r>"
+      },
+      {
+        "id": "ns-rewrite",
+        "input": "<n:r xmlns:n=\"urn:n\" xmlns:m=\"urn:m\"><n:a m:k=\"v\"/></n:r>",
+        "canonical": "<n:r xmlns:m=\"urn:m\" xmlns:n=\"urn:n\"><n:a m:k=\"v\"></n:a></n:r>"
+      },
+      {
+        "id": "ns-hoist",
+        "input": "<r xmlns=\"urn:x\"><a xmlns=\"urn:y\"/></r>",
+        "canonical": "<r xmlns=\"urn:x\"><a xmlns=\"urn:y\"></a></r>"
+      },
+      {
+        "id": "text-escape",
+        "input": "<r>1 &lt; 2 &amp; 3</r>",
+        "canonical": "<r>1 &lt; 2 &amp; 3</r>"
+      },
+      {
+        "id": "cdata-to-text",
+        "input": "<r><![CDATA[raw data]]><b/></r>",
+        "canonical": "<r>raw data<b></b></r>"
+      },
+      {
+        "id": "comment-dropped",
+        "input": "<r><!--gone--><a/></r>",
+        "canonical": "<r><a></a></r>"
+      },
+      {
+        "id": "pi-kept",
+        "input": "<r><?pi data?><a/></r>",
+        "canonical": "<r><?pi data?><a></a></r>"
+      },
+      {
+        "id": "entity-expanded",
+        "input": "<r>a&lt;b&amp;c</r>",
+        "canonical": "<r>a&lt;b&amp;c</r>"
+      },
+      {
+        "id": "empty-elements",
+        "input": "<r><a/><b></b></r>",
+        "canonical": "<r><a></a><b></b></r>"
+      },
+      {
+        "id": "whitespace-preserved",
+        "input": "<r>  x  <a/>  y  </r>",
+        "canonical": "<r>  x  <a></a>  y  </r>"
+      },
+      {
+        "id": "attr-quote-norm",
+        "input": "<r a='single \"double\"'/>",
+        "canonical": "<r a=\"single &quot;double&quot;\"></r>"
+      },
+      {
+        "id": "utf8-high",
+        "input": "<r>café — naïve</r>",
+        "canonical": "<r>café — naïve</r>"
+      },
+      {
+        "id": "nested-ns-default",
+        "input": "<r xmlns=\"urn:a\"><c:b xmlns:c=\"urn:c\"><d xmlns=\"urn:d\"/></c:b></r>",
+        "canonical": "<r xmlns=\"urn:a\"><c:b xmlns:c=\"urn:c\"><d xmlns=\"urn:d\"></d></c:b></r>"
+      },
+      {
+        "id": "mixed-attrs-ns",
+        "input": "<r xmlns:p=\"urn:p\" p:a=\"1\" b=\"2\" xmlns:q=\"urn:q\" q:c=\"3\"/>",
+        "canonical": "<r xmlns:p=\"urn:p\" xmlns:q=\"urn:q\" b=\"2\" p:a=\"1\" q:c=\"3\"></r>"
+      }
+    ],
+    "xsd_structural": [
+      {
+        "id": "builtin-lexical-valid",
+        "schema": "<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"urn:t\" xmlns=\"urn:t\"><xs:element name=\"doc\"><xs:complexType><xs:sequence><xs:element name=\"n\" type=\"xs:int\"/><xs:element name=\"flag\" type=\"xs:boolean\"/></xs:sequence><xs:attribute name=\"a\" type=\"xs:string\"/><xs:anyAttribute namespace=\"##any\" processContents=\"strict\"/></xs:complexType></xs:element><xs:attribute name=\"ext\" type=\"xs:string\"/></xs:schema>",
+        "instance": "<d:doc xmlns:d=\"urn:t\" a=\"x\"><n>42</n><flag>true</flag></d:doc>",
+        "valid": true
+      },
+      {
+        "id": "builtin-lexical-invalid",
+        "schema": "<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"urn:t\" xmlns=\"urn:t\"><xs:element name=\"doc\"><xs:complexType><xs:sequence><xs:element name=\"n\" type=\"xs:int\"/><xs:element name=\"flag\" type=\"xs:boolean\"/></xs:sequence><xs:attribute name=\"a\" type=\"xs:string\"/><xs:anyAttribute namespace=\"##any\" processContents=\"strict\"/></xs:complexType></xs:element><xs:attribute name=\"ext\" type=\"xs:string\"/></xs:schema>",
+        "instance": "<d:doc xmlns:d=\"urn:t\" a=\"x\"><n>not-an-int</n><flag>true</flag></d:doc>",
+        "valid": false
+      },
+      {
+        "id": "strict-admission-declared",
+        "schema": "<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"urn:t\" xmlns=\"urn:t\"><xs:element name=\"doc\"><xs:complexType><xs:sequence><xs:element name=\"n\" type=\"xs:int\"/><xs:element name=\"flag\" type=\"xs:boolean\"/></xs:sequence><xs:attribute name=\"a\" type=\"xs:string\"/><xs:anyAttribute namespace=\"##any\" processContents=\"strict\"/></xs:complexType></xs:element><xs:attribute name=\"ext\" type=\"xs:string\"/></xs:schema>",
+        "instance": "<d:doc xmlns:d=\"urn:t\" xmlns:t=\"urn:t\" t:ext=\"y\" a=\"x\"><n>1</n><flag>false</flag></d:doc>",
+        "valid": true
+      },
+      {
+        "id": "strict-admission-undeclared",
+        "schema": "<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"urn:t\" xmlns=\"urn:t\"><xs:element name=\"doc\"><xs:complexType><xs:sequence><xs:element name=\"n\" type=\"xs:int\"/><xs:element name=\"flag\" type=\"xs:boolean\"/></xs:sequence><xs:attribute name=\"a\" type=\"xs:string\"/><xs:anyAttribute namespace=\"##any\" processContents=\"strict\"/></xs:complexType></xs:element><xs:attribute name=\"ext\" type=\"xs:string\"/></xs:schema>",
+        "instance": "<d:doc xmlns:d=\"urn:t\" ghost=\"z\" a=\"x\"><n>1</n><flag>false</flag></d:doc>",
+        "valid": false
+      },
+      {
+        "id": "substitution-member",
+        "schema": "<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"urn:s\" xmlns=\"urn:s\"><xs:element name=\"shape\" type=\"xs:string\" abstract=\"true\"/><xs:element name=\"circle\" type=\"xs:string\" substitutionGroup=\"shape\"/><xs:element name=\"canvas\"><xs:complexType><xs:sequence><xs:element ref=\"shape\" maxOccurs=\"unbounded\"/></xs:sequence></xs:complexType></xs:element></xs:schema>",
+        "instance": "<s:canvas xmlns:s=\"urn:s\"><s:circle>unit</s:circle></s:canvas>",
+        "valid": true
+      },
+      {
+        "id": "wildcard-lax-other-ns",
+        "schema": "<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"urn:t\" xmlns=\"urn:t\"><xs:element name=\"doc\"><xs:complexType><xs:sequence><xs:any processContents=\"lax\" namespace=\"##other\"/></xs:sequence></xs:complexType></xs:element></xs:schema>",
+        "instance": "<d:doc xmlns:d=\"urn:t\" xmlns:o=\"urn:o\"><o:kid/></d:doc>",
+        "valid": true
+      }
+    ]
+  }
+}

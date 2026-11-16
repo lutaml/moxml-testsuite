@@ -1,0 +1,46 @@
+name: validate
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+      # No gems: the validators are gem-free and must keep passing with
+      # plain ruby, before bundle install.
+      - name: Dataset structure (validate_schema.rb; fail-closed schema subset)
+        run: ruby tools/validate_schema.rb
+      - name: Tool-guard spec suite
+        run: |
+          bundle install
+          bundle exec rspec
+
+  identity:
+    # The corpus-identity gate: the committed dataset must be identical
+    # to what the moxml reference implementation exports from its case
+    # tables. Runs against the moxml checkout at main.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: lutaml/moxml
+          ref: main
+          path: moxml
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+      - name: Bundle the reference checkout
+        run: |
+          cd moxml
+          bundle install --jobs 4
+      - name: Corpus identity (validate.rb)
+        env:
+          MOXML_PATH: ${{ github.workspace }}/moxml
+        run: ruby tools/validate.rb
+      - name: Dataset structure (against the refreshed corpus)
+        run: ruby tools/validate_schema.rb

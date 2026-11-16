@@ -8,30 +8,27 @@ AllCops:
 plugins:
   - rubocop-rspec
 
-# The report messages are dataset-driven dynamic strings.
-Style/FormatStringToken:
-  Enabled: false
-
-# Family style: development dependencies declared in the gemspec.
-Gemspec/DevelopmentDependencies:
-  Enabled: false
-
+# The fail-closed schema-subset engine is one keyword dispatcher by
+# design: every unimplemented keyword must raise, not fall through.
 Metrics/AbcSize:
-  Max: 40
-
-Metrics/MethodLength:
-  Max: 30
+  Max: 70
 
 Metrics/CyclomaticComplexity:
-  Max: 12
+  Max: 35
 
 Metrics/PerceivedComplexity:
-  Max: 12
+  Max: 30
+
+Metrics/MethodLength:
+  Max: 70
+
+Metrics/BlockLength:
+  Max: 40
 
 Metrics/ParameterLists:
   Max: 8
 
-# Family style: runner and CLI specs describe by string.
+# Family style: validators and tool-guard specs describe by string.
 RSpec/DescribeClass:
   Enabled: false
 

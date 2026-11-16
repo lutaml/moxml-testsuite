@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lutaml/moxml-testsuite/tests/case-1.0.0.json",
+  "title": "moxml-testsuite conformance row",
+  "description": "One row of the language-neutral, engine-neutral conformance dataset every moxml implementation must pass. Rows carry committed model answers, never implementation class names or engine identifiers.",
+  "oneOf": [
+    { "$ref": "#/$defs/builtin_lexical" },
+    { "$ref": "#/$defs/xsd_regex_translation" },
+    { "$ref": "#/$defs/schema_wildcards" },
+    { "$ref": "#/$defs/entity_registry" },
+    { "$ref": "#/$defs/serialization" },
+    { "$ref": "#/$defs/c14n" },
+    { "$ref": "#/$defs/xsd_structural" }
+  ],
+  "$defs": {
+    "builtin_lexical": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "lexical", "valid"],
+      "properties": {
+        "type": { "type": "string", "pattern": "^xs:[A-Za-z0-9]+$" },
+        "lexical": { "type": "string" },
+        "valid": { "type": "boolean" }
+      }
+    },
+    "xsd_regex_translation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pattern", "value", "matches", "translatable"],
+      "properties": {
+        "pattern": { "type": "string" },
+        "value": { "type": "string" },
+        "matches": { "type": "boolean" },
+        "translatable": { "type": "boolean" }
+      }
+    },
+    "schema_wildcards": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "constraint", "process", "not_namespace", "not_qname",
+        "item_namespace", "item_qname", "defined", "sibling_names",
+        "covers", "exclusion"
+      ],
+      "properties": {
+        "constraint": { "type": "string" },
+        "process": { "enum": ["strict", "lax", "skip"] },
+        "not_namespace": { "type": ["string", "null"] },
+        "not_qname": { "type": "array", "items": { "type": "string" } },
+        "item_namespace": { "type": "string" },
+        "item_qname": { "type": "string" },
+        "defined": { "type": "boolean" },
+        "sibling_names": { "type": "array", "items": { "type": "string" } },
+        "covers": { "type": "boolean" },
+        "exclusion": { "type": ["string", "null"] }
+      }
+    },
+    "entity_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seed", "qname", "qcp", "restore_entities", "mode", "declared",
+        "codepoint", "names", "primary", "standard", "restore"
+      ],
+      "properties": {
+        "seed": { "type": "object", "additionalProperties": { "type": "string" } },
+        "qname": { "type": "string" },
+        "qcp": { "type": "integer" },
+        "restore_entities": { "type": "boolean" },
+        "mode": { "enum": ["lenient", "strict"] },
+        "declared": { "type": "boolean" },
+        "codepoint": { "type": ["integer", "null"] },
+        "names": { "type": "array", "items": { "type": "string" } },
+        "primary": { "type": ["string", "null"] },
+        "standard": { "type": "boolean" },
+        "restore": { "type": "boolean" }
+      }
+    },
+    "serialization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "input", "output"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "input": { "type": "string" },
+        "output": { "type": "string" }
+      }
+    },
+    "c14n": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "input", "canonical"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "input": { "type": "string" },
+        "canonical": { "type": "string" }
+      }
+    },
+    "xsd_structural": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "schema", "instance", "valid"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "schema": { "type": "string" },
+        "instance": { "type": "string" },
+        "valid": { "type": "boolean" }
+      }
+    }
+  }
+}

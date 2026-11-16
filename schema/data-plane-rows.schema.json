@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lutaml/moxml-testsuite/tests/data-plane-rows-1.0.0.json",
+  "title": "moxml-testsuite data-plane rows case",
+  "description": "One case of the element-rows contract (processing-model § The data plane): the canonical XML and the exact row tuples. Rows: [ordinal, parent, depth, qualified_name, namespace_uri, attribute_pairs, text].",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["xml", "rows"],
+  "properties": {
+    "xml": { "type": "string" },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            { "type": ["integer", "null"] },
+            { "type": "string" },
+            { "type": "array" }
+          ]
+        },
+        "minItems": 7,
+        "maxItems": 7
+      }
+    }
+  }
+}

@@ -12,7 +12,13 @@ reference, moxml-rs, moxml-ts, ...) must pass.
   builtin lexical spaces, XSD pattern translation, namespace wildcards,
   the entity registry, serialization shapes, C14N vectors, and XSD
   structural validation.
-- `schema/test.schema.json` - JSON Schema (2020-12) for every row.
+- `tests/data-plane-rows.json` - the element-rows contract dataset
+  (processing-model § The data plane): canonical XML documents and the
+  exact row tuples. Its reference implementation is moxml-rs
+  (`cargo run --bin export_rows`), distinct from the model answers'
+  exporter - the two datasets version separately.
+- `schema/test.schema.json`, `schema/data-plane-rows.schema.json` -
+  JSON Schema (2020-12) for every row.
 - `tools/` - gem-free validators and the corpus bridge.
 
 ## Contract rules

@@ -56,6 +56,10 @@ module JsonSchemaSubset
         if instance.is_a?(Array) && instance.length < value
           errors << "#{path}: fewer than #{value} items"
         end
+      when "maxItems"
+        if instance.is_a?(Array) && instance.length > value
+          errors << "#{path}: more than #{value} items"
+        end
       when "oneOf"
         passing = value.count do |alt|
           validate(alt, instance, path, root).empty?
